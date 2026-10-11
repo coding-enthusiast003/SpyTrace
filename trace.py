@@ -4,7 +4,7 @@ import os
 from rich.console import Console  # For rich console output
 from rich.text import Text # For rich text formatting
 from pyfiglet import Figlet # For creating ASCII art text
-from options import phone,ip_trace  # Import the phone function from options.py
+from options import phone,ip_trace,track_user  # Import the phone function from options.py
 
 
 console= Console()
@@ -62,6 +62,7 @@ def main():
         else:
             console.print("[ 1 ] Phone Number : ", style="bold green")
             console.print("[ 2 ] IP Address : " , style="bold green")
+            console.print("[ 3 ] Track User : " , style="bold green")
             choice = console.input("[bold green]Enter the options to trace: [/bold green]")
             time.sleep(1)
 
@@ -70,7 +71,7 @@ def main():
                 banner2()
                 phone()
                 print()
-                console.input("[bold blue]Select an option to continue (or any other key to exit): [/bold blue]")
+                 
 
             elif choice == "2":
                 banner2()
@@ -78,6 +79,11 @@ def main():
                 print()
                 
             
+            elif choice == "3":
+                banner2()
+                track_user()
+                print()
+
             else:
                 pass
 

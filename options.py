@@ -111,3 +111,73 @@ def ip_trace(): # for ip information
     console.print(f"Requests Left    : {rate.get('remaining')}" , style="bold green")
 
     console.print("\n=====================================")
+
+
+
+
+
+def track_user():
+    username = console.input("[bold green]enter the user name: [/bold green]")
+    console.print("searching user name...." ,  style="bold green")
+    print()
+    time.sleep(2)
+    platforms = {
+    # Mainstream social media
+    "Instagram": "https://www.instagram.com/{username}/",
+    "Facebook": "https://www.facebook.com/{username}",
+    "X (Twitter)": "https://x.com/{username}",
+    "TikTok": "https://www.tiktok.com/@{username}",
+    "YouTube": "https://www.youtube.com/@{username}",
+    "Threads": "https://www.threads.net/@{username}",
+    "Snapchat": "https://www.snapchat.com/add/{username}",
+    "Pinterest": "https://www.pinterest.com/{username}/",
+
+    # Professional networking
+    "LinkedIn": "https://www.linkedin.com/in/{username}/",
+
+    # Communities and discussion
+    "Reddit": "https://www.reddit.com/user/{username}/",
+    "Quora": "https://www.quora.com/profile/{username}",
+    "Telegram": "https://t.me/{username}",
+    "Twitch": "https://www.twitch.tv/{username}",
+    "Discord": "https://discord.com/users/{user_id}",
+
+    # Developer platforms
+    "GitHub": "https://github.com/{username}",
+    "GitLab": "https://gitlab.com/{username}",
+
+    # Content and creative platforms
+    "Medium": "https://medium.com/@{username}",
+    "SoundCloud": "https://soundcloud.com/{username}",
+    "Spotify": "https://open.spotify.com/user/{user_id}",
+    "Behance": "https://www.behance.net/{username}",
+    "Dribbble": "https://dribbble.com/{username}",
+
+    # Streaming and gaming
+    "Kick": "https://kick.com/{username}",
+    "Roblox": "https://www.roblox.com/users/profile?username={username}",
+}
+    for key, values in platforms.items():
+        if "{user_id}" in values: #used to check if the platform requires a user ID instead of a username
+            console.print(
+                f"{key}: Requires a user ID; skipped",
+                style="bold yellow"
+            )
+            continue
+
+        try:
+            url = values.format(username=username)
+            response = requests.get(url, timeout=10) #timeout to avoid waiting tool long for a response
+
+            if response.status_code == 200:
+                console.print(key, ":", url, style="bold green")
+            elif response.status_code == 404:
+                console.print(key, ": Not found", style="bold red")
+            else:
+                console.print(
+                    f"{key}: Inconclusive (HTTP {response.status_code})",
+                    style="bold yellow"
+                )
+
+        except requests.RequestException as e:
+            console.print(f"{key}: Request error - {e}", style="bold red")
