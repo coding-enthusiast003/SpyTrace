@@ -16,8 +16,7 @@ The project combines phone number intelligence, IP intelligence, username footpr
 - 📧 **Email Breach Checker** — Check whether an email address appears in known data breach records using XposedOrNot.
 - 🎨 **Rich CLI Output** — Display formatted terminal output using the Rich library.
 
-<img src="https://github.com/coding-enthusiast003/SpyTrace/blob/main/Assests/intro2.png" alt="SpyTrace into2" width="200"/>
-
+ 
 ## 🛠️ Built With
 
 - Python 3
@@ -49,7 +48,7 @@ SpyTrace/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/coding-enthusiast003/SpyTrace.git
+git clone https://github.com/coding-enthusiast003/Trace.git
 cd SpyTrace
 ```
 
@@ -80,20 +79,20 @@ pip install -r requirements.txt
 **Linux:**
 
 ```bash
-python3 spytrace.py
+python3 trace.py
 ```
 
 If the script has a valid Python shebang and executable permissions, you can also run:
 
 ```bash
-chmod +x spytrace.py
-./spytrace.py
+chmod +x trace.py
+./trace.py
 ```
 
 **Windows:**
 
 ```powershell
-python spytrace.py
+python trace.py
 ```
 
 ## 🚀 Usage
