@@ -1,10 +1,11 @@
+#!/usr/bin/env python3
 import requests
 import time
 import os
 from rich.console import Console  # For rich console output
 from rich.text import Text # For rich text formatting
 from pyfiglet import Figlet # For creating ASCII art text
-from options import phone,ip_trace,track_user  # Import the phone function from options.py
+from options import phone,ip_trace,track_user,email_check  # Import the phone function from options.py
 
 
 console= Console()
@@ -63,6 +64,7 @@ def main():
             console.print("[ 1 ] Phone Number : ", style="bold green")
             console.print("[ 2 ] IP Address : " , style="bold green")
             console.print("[ 3 ] Track User : " , style="bold green")
+            console.print("[ 4 ] Check Email Breach : " , style="bold green")
             choice = console.input("[bold green]Enter the options to trace: [/bold green]")
             time.sleep(1)
 
@@ -82,6 +84,11 @@ def main():
             elif choice == "3":
                 banner2()
                 track_user()
+                print()
+
+            elif choice == "4":
+                banner2()
+                email_check()
                 print()
 
             else:

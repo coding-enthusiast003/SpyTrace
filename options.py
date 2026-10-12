@@ -6,8 +6,13 @@ from rich.console import Console  # For rich console output
 from rich.text import Text # For rich text formatting
 import json
 import time
+from xposedornot import XposedOrNot #xposedornot library to check email exposed in data breaches
 
 console = Console()
+
+# Initialize the client
+xon = XposedOrNot()
+
 
 def phone(): #for phone number information
     number_input = console.input("[bold green]Enter phone number (+country code)[/bold green]: ")
@@ -181,3 +186,31 @@ def track_user():
 
         except requests.RequestException as e:
             console.print(f"{key}: Request error - {e}", style="bold red")
+
+def email_check(): #for email breach check
+    mail = console.input("[bold green]enter the email id : [/bold green]")
+    time.sleep(1)
+
+    # Check if an email has been exposed (returns breach names only)
+    result = xon.check_email(mail)
+    if result.breaches:
+        console.print(f"[bold red]Found in {len(result.breaches)} breaches: [/bold red]")
+        for i in result.breaches:
+             console.print( i, style="bold red")
+
+        # Get detailed breach analytics
+        analytics = xon.breach_analytics(mail)
+        console.print(f"[bold red]Total exposures: {analytics.exposures_count}[/bold red]")
+        console.print(f"[bold red]First breach: {analytics.first_breach}[/bold red]")
+
+        for breach in analytics.breaches_details:
+            console.print(f"  - {breach.breach}: {breach.xposed_records} records")
+
+            # Get all known breaches
+        breaches = xon.get_breaches()
+        console.print(f"[bold red]Total breaches in database: {len(breaches)}[/bold red]")
+
+    else:
+        console.print( "[bold green]No known breaches found for this email.[/bold green]")
+
+     
