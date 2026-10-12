@@ -6,7 +6,7 @@ SpyTrace is a Python-based **Open-Source Intelligence (OSINT) toolkit** designed
 
 The project combines phone number intelligence, IP intelligence, username footprint scanning, and email breach checking in one command-line tool.
 
-<img src="assets/intro.png" alt="SpyTrace Intro" width="600"/>
+<img src="https://github.com/coding-enthusiast003/SpyTrace/blob/main/Assests/intro.png" alt="SpyTrace Intro" width="600"/>
 
 ## ✨ Features
 
@@ -16,7 +16,7 @@ The project combines phone number intelligence, IP intelligence, username footpr
 - 📧 **Email Breach Checker** — Check whether an email address appears in known data breach records using XposedOrNot.
 - 🎨 **Rich CLI Output** — Display formatted terminal output using the Rich library.
 
-<img src="assets/intro2.png" alt="SpyTrace Logo" width="200"/>
+<img src="https://github.com/coding-enthusiast003/SpyTrace/blob/main/Assests/intro2.png" alt="SpyTrace into2" width="200"/>
 
 ## 🛠️ Built With
 
